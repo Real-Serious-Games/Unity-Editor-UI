@@ -14,5 +14,5 @@ namespace UnityEditorUI
         /// Returns ths widget's parent layout.
         /// </summary>
         ILayout End();
-}
+    }
 }
