@@ -31,3 +31,8 @@ bld/
 *.log
 *.orig
 
+# Unity
+**/Library/
+**/Temp/
+**/Builds/
+Examples/**/*.sln
