@@ -3,9 +3,9 @@ using UnityEditor;
 using UnityEditorUI;
 
 /// <summary>
-/// An example of a simple editor window.
+/// An example of a simple editor window featuring a button and a label.
 /// </summary>
-class TestEditorWindow : EditorWindow
+class Example1 : EditorWindow
 {
     /// <summary>
     /// Our GUI object.
@@ -15,10 +15,10 @@ class TestEditorWindow : EditorWindow
     /// <summary>
     /// Allow the window to be opened via a menu item.
     /// </summary>
-    [MenuItem("Example/Editor window")]
+    [MenuItem("UnityEditorUI Examples/Example 1")]
     public static void ShowWindow()
     {
-        var window = (TestEditorWindow) EditorWindow.GetWindow<TestEditorWindow>(false, "Editor window");
+        var window = (Example1) EditorWindow.GetWindow<Example1>(false, "Editor window");
         
         if (window.gui == null)
         {

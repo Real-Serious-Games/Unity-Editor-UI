@@ -35,4 +35,5 @@ bld/
 **/Library/
 **/Temp/
 **/Builds/
-Examples/**/*.sln
+Examples/*.sln
+Examples/*.csproj
