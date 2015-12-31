@@ -36,6 +36,12 @@ Every property on a GUI widget can have its value set to a constant value using 
 ## Examples
 The project in the `Examples` directory has been tested with Unity 5.2.3p2 and should contain everything you need to load up and run the examples. Since this library is purely for Unity editor extensions, there is no scene included in the project.
 
+### Example 1
+This example shows the most basic sample of a use case for the UnityEditorUI system, binding a Unity editor window to a simple view class but not subscribing to property changed events.
+
+### Example 2
+This example demonstrates how to set up your view class so that, when bound to a UI, property changed events will be passed on to the UI and the UI will update itself accordingly, as well as the properties in the view being updated when valeus are changed by the user via the UI.
+
 ## Widgets
 ### Button
 Clickable push button widget.
