@@ -7,7 +7,10 @@ A wrapper around the Unity editor GUI system for constructing editor windows usi
 Set up a simple editor window with a label and a button:
 
 ```
-// Construct the GUI
+// Create an instance of the view you want to bind the UI to
+var viewModel = new ExampleView();
+
+// Create the UI
 var gui = new UnityEditorUI.GUI();
 gui.Root()
     .Label()
@@ -15,9 +18,12 @@ gui.Root()
     .End()
     .Button()
         .Text.Value("Do something!")
-        .Click.Bind(() => Debug.Log("Button clicked"))
+        .Click.Bind(() => viewModel.DoSomething())
         .Tooltip.Value("Click to trigger an event")
     .End()
+    
+// Bind the UI to the view
+gui.BindViewModel(viewModel);
 ```
 
 And then render and update it by adding the following line to your editor window's existing `OnGUI()` method:
@@ -27,6 +33,8 @@ gui.OnGUI();
 
 Every property on a GUI widget can have its value set to a constant value using `.Value()`, or bound to another property using `.Bind()`. If the class being bound to implements `INotifyPropertyChanged`, this will set up a two way data binding, so that the underlying view gets updated when the UI changes and vice-versa.
 
+## Examples
+The project in the `Examples` directory has been tested with Unity 5.2.3p2 and should contain everything you need to load up and run the examples. Since this library is purely for Unity editor extensions, there is no scene included in the project.
 
 ## Widgets
 ### Button
