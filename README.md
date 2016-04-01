@@ -1,6 +1,8 @@
 # UnityEditorUI
 
-A wrapper around the Unity editor GUI system for constructing editor windows using a fluent API instead of Unity's `OnGUI` functions. Editor GUI widgets can be bound to properties and methods in other classes to create GUIs that implement the MVVM pattern.
+A wrapper around the Unity editor GUI system for constructing editor windows using a fluent API instead of Unity's `OnGUI` functions. 
+
+This system supports two-way data binding between the UI and a ViewModel class, allowing you to create simpler, unit testable code for editor extensions by moving the logic and the UI code into separate classes.
 
 ## Constructing editor windows
 
@@ -31,16 +33,16 @@ And then render and update it by adding the following line to your editor window
 gui.OnGUI();
 ```
 
-Every property on a GUI widget can have its value set to a constant value using `.Value()`, or bound to another property using `.Bind()`. If the class being bound to implements `INotifyPropertyChanged`, this will set up a two way data binding, so that the underlying view gets updated when the UI changes and vice-versa.
+Every property on a GUI widget can have its value set to a constant value using `.Value()`, or bound to another property using `.Bind()`. If the class being bound to implements [`INotifyPropertyChanged`](https://msdn.microsoft.com/en-us/library/system.componentmodel.inotifypropertychanged.aspx), this will set up a two way data binding, so that properties in the bound class get updated when the UI changes and the UI gets .
 
 ## Examples
 The project in the `Examples` directory has been tested with Unity 5.2.3p2 and should contain everything you need to load up and run the examples. Since this library is purely for Unity editor extensions, there is no scene included in the project.
 
 ### Example 1
-This example shows the most basic sample of a use case for the UnityEditorUI system, binding a Unity editor window to a simple view class but not subscribing to property changed events.
+This example shows the most basic sample of a use case for the UnityEditorUI system, binding a Unity editor window to a simple view model class but not subscribing to property changed events.
 
 ### Example 2
-This example demonstrates how to set up your view class so that, when bound to a UI, property changed events will be passed on to the UI and the UI will update itself accordingly, as well as the properties in the view being updated when valeus are changed by the user via the UI.
+This example demonstrates how to set up a view model class that implements [`INotifyPropertyChanged`](https://msdn.microsoft.com/en-us/library/system.componentmodel.inotifypropertychanged.aspx) and sends events back to the UI when properties are changed. 
 
 ## Widgets
 ### Button
